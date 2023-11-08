@@ -9,13 +9,23 @@
 </head>
 <body>
 
-   <header>
+    <header>
 
         <div class="options">
 
             <h1>Parcelas.com</h1>
 
             <div class="tab-container">
+                <button class="tab" onclick="openTab('inicio')">Inicio</button>
+                <button class="tab" onclick="openTab('parcelas')">Parcelas</button>
+                <button class="tab" onclick="openTab('iniciar-sesion')">Iniciar Sesión</button>
+                <button class="tab" onclick="openTab('mi-cuenta')">Mi Cuenta</button>
+            </div>
+
+            <!-- Menú de hamburguesa para dispositivos móviles -->
+            <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+            <div class="menu" id="mobile-menu">
+                <div><span class="close-modal-cambiar" onclick="closeModalCambiar()">&times;</span></div>
                 <button class="tab" onclick="openTab('inicio')">Inicio</button>
                 <button class="tab" onclick="openTab('parcelas')">Parcelas</button>
                 <button class="tab" onclick="openTab('iniciar-sesion')">Iniciar Sesión</button>
@@ -106,7 +116,7 @@
 
         </section>
 
-    </div>
+    </div> 
 
     <div id="parcelas" class="tab-content">
         <!-- Contenido de la pestaña Parcelas -->

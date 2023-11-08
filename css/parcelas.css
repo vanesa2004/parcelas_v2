@@ -67,7 +67,20 @@ header p{
     margin-top: 90px;
 }
 
-/* estilos del contenido */
+/* estilos del menu para moviles -----------------------------------------*/
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+}
+
+
+
+
+/* estilos del contenido -------------------------------------------------*/
 .content-inicio{
     display: flex;
     height: 99%;
@@ -698,52 +711,6 @@ Estilos mesajes de error
 }
 
 
-/*========================================
-Responsive
-==========================================*/
-/*========================================
-    @media query - pantalla movil
-==========================================*/
-
-@media screen and (max-width: 768px) {
-
-    .contenedor-login {
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .dots {
-        display: none;
-    }
-
-    
-
-    .contenedor-texto{
-        width:calc(100% - 30px);
-        position: relative;
-        background: red;
-        box-shadow: 0px 3px 6px rgba(0,0,0,.08);
-        margin: auto;
-        margin-top: -50px;
-        border-radius: 7px;
-        margin-bottom: 40px;
-    }
-
-    .contenedor-form {
-        padding: 20px !important;
-    }
-
-    .contenedor-form .titulo {
-        font-size: 20px;
-    }
-
-    .contenedor-form .tabs-links {
-        margin-top: 40px;
-    }
-
-    
-}
-
 
 /* estilos pestaña mi cuenta */
 .container-micuenta{
@@ -761,7 +728,6 @@ Responsive
 }
 
 .container-misdatos{
-    border-right: 2px solid gray;
     width: 50%;
 }
 
@@ -1169,7 +1135,7 @@ Responsive
 
 
 
-
+/* responsive para pc -----------------------------------------------------------*/
 @media (max-width: 1440px) {
     /* estilos del header */
     header p{
@@ -1256,4 +1222,57 @@ Responsive
         height: 95px;
     }
 
+}
+
+
+/* responsive para tablets y moviles ---------------------------------------------*/
+@media screen and (max-width: 768px) {
+
+    .options{
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .tab-container{
+        display: none; /*ocultar menu del pc en movil*/
+    }
+
+    .hamburger-menu{
+        font-size: 30px;
+        color: #fff;
+    }
+
+    header p{
+        font-size: 19px;
+    }
+
+    /* estilos del menu para moviles -----------------------------------------*/
+    .content {
+        display: none;
+        padding: 20px;
+        color: #333;
+        background-color: #f0f0f0;
+    }
+
+    .menu {
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        z-index: 1;
+        width: 60%;
+        height: 40%;
+        justify-content: space-evenly;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    
 }

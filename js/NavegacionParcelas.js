@@ -7,8 +7,18 @@ function openTab(tabName) {
     }
 
     document.getElementById(tabName).style.display = "block";
+
+    // Ocultar el menú móvil
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.remove('open');
 }
 
+function toggleMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('open');
+}
+
+// Mostrar la pestaña "Inicio" por defecto al cargar la página
 document.addEventListener("DOMContentLoaded", function() {
-    openTab("mi-cuenta"); // Mostrar la pestaña "Inicio" por defecto al cargar la página
+    openTab("inicio");
 });
