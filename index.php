@@ -401,14 +401,14 @@
 
                             <div class="register-left">
 
-                                <select class="select campo" name="sexo" id="">
+                                <select class="select campo" name="sexo" id="sexo">
                                     <option value="" disabled selected >Sexo</option>
                                     <option value="m">Masculino</option>
                                     <option value="f">Femenino</option>
                                 </select>
         
-                                <input class="input-number campo" type="number" placeholder="Numero de telefono">
-                                <textarea class="descripcion campo" name="descripcionpersonal" id="" cols="30" rows="10" placeholder="Descripción personal"></textarea>
+                                <input class="input-number campo" type="number" placeholder="Numero de telefono" name="num-tlfono">
+                                <textarea class="descripcion campo" name="descripcionpersonal" id="descripcion-prsnal" cols="30" rows="10" placeholder="Descripción personal"></textarea>
     
                             </div>
     
@@ -416,10 +416,10 @@
     
                                 <div class="fech-nacimiento">
                                     <label for="fecha-nacimiento">Fecha de nacimiento:</label>
-                                    <input class="nacimiento campo" type="date" id="fecha-nacimiento">
+                                    <input class="nacimiento campo" type="date" id="fecha-nacimiento" name="fecha-nacimiento">
                                 </div>
             
-                                <input class="usuario-reg campo" type="text" placeholder="Usuario">
+                                <input class="usuario-reg campo" type="text" placeholder="Usuario" name="usuario">
             
                                 <input type="password" placeholder="Contraseña" name="password" class="password-reg campo">
             
@@ -482,7 +482,7 @@
 
                         <form class="form-lnk-whats" action="">
 
-                            <input type="text" placeholder="Link de whatsApp">
+                            <input type="text" placeholder="Link de whatsApp" name="link">
                             <button>Publicar link</button>
 
                         </form>
@@ -539,13 +539,13 @@
                         <div class="campos-registro">
 
                             <div class="container-campo">
-                                <input type="text" placeholder="Nombre parcela">
-                                <input type="text" placeholder="Hectareas">
+                                <input type="text" placeholder="Nombre parcela" name="nombreparcelareg">
+                                <input type="text" placeholder="Hectareas" name="hectareasreg">
                             </div>
 
                             <div  class="container-campo">
-                                <input type="text" placeholder="Maquinaria">
-                                <input type="text" placeholder="Costo parcela">
+                                <input type="text" placeholder="Maquinaria" name="maquinaria-reg">
+                                <input type="text" placeholder="Costo parcela" name="costparcela-reg">
                             </div>
 
                             <div class="container-campo">
@@ -554,7 +554,7 @@
                                     <option value="venta">Vender</option>
                                     <option value="alquiler">Alquilar</option>
                                 </select>
-                                <input type="text" placeholder="Ubicacion">
+                                <input type="text" placeholder="Ubicacion" name="ubicacion-reg">
                             </div>
 
                             <div id="cultivos">
@@ -562,17 +562,17 @@
                                 <div class="cultivo-ed">
                                     <div class="campo-cultivo">
                                         <label for="cultivo[]">Cultivo:</label>
-                                        <input type="text" name="cultivo[]" required>
+                                        <input id="cultivo[]" type="text" name="cultivo[]" required>
                                     </div>
 
                                     <div class="campo-cultivo">
                                         <label for="siembra[]">Fecha de Siembra:</label>
-                                        <input type="date" name="siembra[]" required>
+                                        <input id="siembra[]" type="date" name="siembra[]" required>
                                     </div>
 
                                     <div class="campo-cultivo">
                                         <label for="cosecha[]">Fecha de Cosecha:</label>
-                                        <input type="date" name="cosecha[]" required>
+                                        <input id="cosecha[]" type="date" name="cosecha[]" required>
                                     </div>
 
                                 </div>
@@ -583,7 +583,7 @@
 
                             <div class="foto-parcela">
                                 <label for="fotos">Fotos de la parcela (mínimo 1, máximo 5):</label>
-                                <input type="file" name="fotos[]" accept="image/*" multiple required>
+                                <input id="fotos" type="file" name="fotos[]" accept="image/*" multiple required>
                             </div>
 
                         </div>
@@ -810,17 +810,17 @@
                                         <div id="cultivos-contenedor" class="cultivo-ed">
                                             <div class="campo-cultivo">
                                                 <label for="cultivo-edit[]">Cultivo:</label>
-                                                <input type="text" name="cultivo-edit[]" required>
+                                                <input id="cultivo-edit[]" type="text" name="cultivo-edit[]" required>
                                             </div>
         
                                             <div class="campo-cultivo">
                                                 <label for="siembra-edit[]">Fecha de Siembra:</label>
-                                                <input type="date" name="siembra-edit[]" required>
+                                                <input id="siembra-edit[]" type="date" name="siembra-edit[]" required>
                                             </div>
         
                                             <div class="campo-cultivo">
                                                 <label for="cosecha-edit[]">Fecha de Cosecha:</label>
-                                                <input type="date" name="cosecha-edit[]" required>
+                                                <input id="cosecha-edit[]" type="date" name="cosecha-edit[]" required>
                                             </div>
         
                                         </div>

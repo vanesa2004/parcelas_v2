@@ -167,12 +167,6 @@ if(document.getElementById('btnRegistro')){
 
     });
 
-    formRegistro.cbx_terminos.addEventListener('change',(e)=>{
-        if(e.target.checked){
-            formRegistro.cbx_terminos.parentNode.classList.remove('cbx-error');
-        }
-    })
-
 
 }
 
