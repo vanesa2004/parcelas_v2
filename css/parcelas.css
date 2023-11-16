@@ -20,7 +20,7 @@ body {
     color para el hover de los botones #*/
 
 header{
-    background-image: url('../img/fondo_parcelas.jpg');
+    background-image: url('../img/fondo_parcelas\ -\ copia.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -84,6 +84,10 @@ header p{
 .content-inicio{
     display: flex;
     height: 99%;
+}
+
+.content-iniciomovile{
+    display: none;
 }
 
 .acciones{
@@ -195,7 +199,7 @@ header p{
     border-radius: 5px;
     padding: 20px;
     margin: 25px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     margin-bottom: 0;
 }
 
@@ -261,14 +265,20 @@ header p{
  .slider-popup {
     display: none;
     position: fixed;
-    top: 20%;
-    left: 22%;
-    width: 56%;
-    height: 65%;
-    background-color: rgba(0, 0, 0, 0.342);
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 999;
+  }
+
+  .c-slider{
+    width: 56%;
+    margin-top: 5%;
+    margin-left: 20%;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   
   .slider-popup .slider {
@@ -856,7 +866,7 @@ Estilos mesajes de error
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .close-modal-cambiar {
@@ -942,7 +952,7 @@ Estilos mesajes de error
 
 /* estilos de el formulario del registro de parcelas */
 .parcelas-register{
-    box-shadow: 0px 5px 5px rgba(103, 148, 245, 0.5);
+    box-shadow: 0px 5px 5px rgba(103, 148, 245, 0.1);
     width: 95%;
     border-radius: 5px;
     margin: auto;
@@ -1189,6 +1199,10 @@ Estilos mesajes de error
         height: 100%;
     }
 
+    .c-slider{
+        width: 60%;
+    }
+
     .articulos-relacionados{
         height: 100%;
     }
@@ -1228,6 +1242,13 @@ Estilos mesajes de error
 /* responsive para tablets y moviles ---------------------------------------------*/
 @media screen and (max-width: 768px) {
 
+    header{
+        background-image: url('../img/fondo-parcela-movil.jpg');
+        height: 30%;
+        color: #fff;
+        font-weight: bold;
+    }
+
     .options{
         align-items: center;
         justify-content: space-between;
@@ -1243,7 +1264,13 @@ Estilos mesajes de error
     }
 
     header p{
-        font-size: 19px;
+        font-size: 18px;
+        width: 90%;
+    }
+
+    .tab-content{
+        height: calc(100% - 30%);
+        overflow-y: auto;
     }
 
     /* estilos del menu para moviles -----------------------------------------*/
@@ -1254,25 +1281,292 @@ Estilos mesajes de error
         background-color: #f0f0f0;
     }
 
-    .menu {
-        flex-direction: column;
-        background-color: #fff;
-        position: absolute;
-        top: 0px;
-        right: 0;
-        z-index: 1;
-        width: 60%;
-        height: 40%;
-        justify-content: space-evenly;
-    }
-
     .hamburger-menu {
         display: block;
     }
 
-    .menu.open {
-        display: flex;
+    .menu {
+        flex-direction: column;
+        background-color: #e4e0e0;
+        top: 0px;
+        right: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        transition: opacity 10s ease;
     }
 
+    .c-options{
+        background-color: #fff;
+        opacity: 3;
+        width: 60%;
+        height: 50%;
+        top: 5px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        justify-content: space-evenly;
+        border-radius: 3px;
+
+    }
+
+    .cerrar-menu{
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        font-size: 100px;
+        color: var(--color-rojo);
+        
+    }
+
+    .menu.open {
+        display: flex;
+        opacity: 1;
+    }
+
+    /* estilos de inicio version movil =========================*/
+
+    .content-inicio{
+        display: none;
+    }
+
+    .content-iniciomovile{
+        display: flex;
+        width: 100%;
+    }
+
+    .container-bienvenida{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .acciones{
+        width: 100%;
+    }
+
+    .nuevas-parcelas{
+        width: 100%;
+    }
+
+    .nuevas-parcelas h3{
+        margin-left: 15px;
+    }
+
+    .parcelas-inicio{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    /* estilos de parcelas version movil =========================*/
+
+    .container-parcelas{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    .parcela{
+        width: 80%;
+    }
+
+    /* estilos del slider version movil =========================*/
+    .slider-container{
+        width: 90%;
+    }
+
+    /* estilos del slider en toda la pantalla ===================*/
+    .slider-popup{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+    }
+
+    .c-slider{
+        width: 100%;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .slider-popup .slider{
+        margin-top: 50%;
+        
+    }
+
+    .close-button{
+        top: 10px;
+        right: 0px;
+    }
+
+    .close-button img{
+        width: 40px;
+    }
+
+    /* estilos de el login y registro -----------------------------*/
+    .contenedor-texto{
+        width: 100%;
+        height: 100%;
+    }
+
+    .contenedor-form{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .texto{
+        width: 88%;
+       
+    }
+
+    .texto .titulo{
+        font-size: 23px;
+    } 
+
+    .texto p{
+        font-size: 15px;
+    }
+
+    .registros{
+        width: 95%;
+    }
+
+    .formulario{
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-login{
+        width: 99%;
+    }
+
+    /* estilos de mi cuenta --------------------------*/
+    .container-datos-parcelas{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-misdatos{
+        width: 100%;
+    }
+
+    .container-misdatos h1{
+        margin-left: 15px;
+    }
+
+    .close-sesion-movil{
+        width: 100%;
+        height: 30px;
+        text-align: end;
+    }
+    
+    .close-sesion-movil a{
+        background-color: red;
+        border-radius: 3px;
+        padding: 9px 30px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .date{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .see-datos .date p{
+        width: 95%;
+    }
+
+    .form-lnk-whats input{
+        width: 70%;
+    }
+
+    .cambiar-misdatos{
+        width: 50%;
+    }
+
+    .close-sesion{
+        display: none;
+    }
+
+    /* estilos ventana modal de cambiar mis datos */
+    .modal-content-cambiar{
+        width: 85%;
+    }
+
+    .form-cambiar-datos{
+        width: 95%;
+    }
+
+    /* estilos de registro de parcelas -------------------*/
+    .container-parcela-cuenta{
+        width: 100%;
+    }
+
+    .parcelas-register{
+        width: 100%;
+    }
+
+    .container-campo{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-campo input{
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .container-campo select{
+        width: 82%;
+        margin-bottom: 10px;
+        height: 30px;
+    }
+
+    #cultivos{
+        width: 100%;
+    }
+
+    .cultivo-ed{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .campo-cultivo{
+        width: 82%;
+    }
+
+    .campo-cultivo input{
+        width: 97%;
+        margin-bottom: 10px;
+    }
+
+    .modal-content{
+        width: 90%;
+        margin: 0;
+    }
+
+    .btn-parcela{
+        width: 40%;
+        height: 40px;
+    }
+
+    /* estilos de parcelas publicadas */
+    .ver-parcela h1{
+        margin-left: 10px;
+        font-size: 28px;
+        margin-top: 25px;
+    }
     
 }

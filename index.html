@@ -25,11 +25,13 @@
             <!-- Menú de hamburguesa para dispositivos móviles -->
             <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
             <div class="menu" id="mobile-menu">
-                <div><span class="close-modal-cambiar" onclick="closeModalCambiar()">&times;</span></div>
-                <button class="tab" onclick="openTab('inicio')">Inicio</button>
-                <button class="tab" onclick="openTab('parcelas')">Parcelas</button>
-                <button class="tab" onclick="openTab('iniciar-sesion')">Iniciar Sesión</button>
-                <button class="tab" onclick="openTab('mi-cuenta')">Mi Cuenta</button>
+                <div class="c-options">
+                    <span class="close-modal-cambiar" onclick="cerrarMenu()">&times;</span>
+                    <button class="tab" onclick="openTab('inicio')">Inicio</button>
+                    <button class="tab" onclick="openTab('parcelas')">Parcelas</button>
+                    <button class="tab" onclick="openTab('iniciar-sesion')">Iniciar Sesión</button>
+                    <button class="tab" onclick="openTab('mi-cuenta')">Mi Cuenta</button>
+                </div>
             </div>
 
         </div>
@@ -70,7 +72,7 @@
     
                     <h3>Nuevas Parcelas</h3>
 
-                    <img src="./img/fondo_parcelas.jpg" alt="parcela">
+                    <a href="#parcela"><img src="./img/fondo_parcelas.jpg" alt="parcela"></a>
                     <img src="./img/fondo_parcelas.jpg" alt="parcela">
                     <img src="./img/fondo_parcelas.jpg" alt="parcela">
                     <img src="./img/fondo_parcelas.jpg" alt="parcela">
@@ -116,6 +118,50 @@
 
         </section>
 
+        <section class="content-iniciomovile">
+    
+            <section class="container-bienvenida">
+    
+                <div class="bienvenida">
+    
+                    <h3>Bienvenido</h3>
+                    <p> Parcelas.com, tu destino confiable para encontrar la parcela perfecta. Conectamos a propietarios 
+                        de terrenos con compradores y arrendatarios en busca de oportunidades únicas. Explora nuestro amplio 
+                        catálogo de parcelas en venta y alquiler, publica tus anuncios fácilmente, y da vida a tus proyectos. 
+                    </p>
+    
+                </div>
+
+                <main class="acciones">
+
+                    <h3>Aqui puedes</h3>
+        
+                    <p>Alquilar parcelas</p>
+                    <p>Comprar parcelas</p>
+                    <p>Vender parcelas</p>
+        
+                </main>
+    
+                <div class="nuevas-parcelas">
+    
+                    <h3>Nuevas Parcelas</h3>
+
+                    <div class="parcelas-inicio">
+
+                        <img src="./img/fondo_parcelas.jpg" alt="parcela">
+                        <img src="./img/fondo_parcelas.jpg" alt="parcela">
+                        <img src="./img/fondo_parcelas.jpg" alt="parcela">
+                        <img src="./img/fondo_parcelas.jpg" alt="parcela">
+                        <img src="./img/tomate.png" alt="parcela">
+
+                    </div>
+    
+                </div>
+                
+            </section>
+
+        </section>
+
     </div> 
 
     <div id="parcelas" class="tab-content">
@@ -136,15 +182,17 @@
                 </div>
 
                 <div class="slider-popup" id="slider-popup">
-                    <div class="slider">
-                      <img class="slider-image" src="./img/parcela1.png" alt="Imagen 1">
-                      <img class="slider-image" src="img/parcela2.jpg" alt="Imagen 2">
-                      <img class="slider-image" src="img/parcela3.jpg" alt="Imagen 3">
-                      <!-- Agrega más imágenes según sea necesario -->
+                    <div class="c-slider">
+                        <div class="slider">
+                            <img class="slider-image" src="./img/parcela1.png" alt="Imagen 1">
+                            <img class="slider-image" src="img/parcela2.jpg" alt="Imagen 2">
+                            <img class="slider-image" src="img/parcela3.jpg" alt="Imagen 3">
+                            <!-- Agrega más imágenes según sea necesario -->
+                          </div>
+                          <button class="close-button" id="close-button"><img src="./img/x.svg" alt=""></button>
+                          <button class="prev-button-popup" id="prev-button-popup"><img src="./img/izquierda.svg" alt=""></button>
+                          <button class="next-button-popup" id="next-button-popup"><img src="./img/derecha.svg" alt=""></button>
                     </div>
-                    <button class="close-button" id="close-button"><img src="./img/x.svg" alt=""></button>
-                    <button class="prev-button-popup" id="prev-button-popup"><img src="./img/izquierda.svg" alt=""></button>
-                    <button class="next-button-popup" id="next-button-popup"><img src="./img/derecha.svg" alt=""></button>
                 </div>
 
                 <h5>Nombre</h5>
@@ -402,7 +450,10 @@
 
                 <div class="container-misdatos">
 
-                    <h1>Mis datos</h1>
+                    <h1>Mis datos</h1> 
+                    <div class="close-sesion-movil">
+                        <a href="#">Cerrar sesión</a>
+                    </div>
 
                     <div class="see-datos">
 
@@ -441,7 +492,7 @@
 
                     </div>
 
-                    <!-- Ventana modal oculta -->
+                    <!-- Ventana modal oculta para cambiar mis datos-->
                     <div id="modal-cambiar" class="modal-cambiar">
                         <div class="modal-content-cambiar">
                             <span class="close-modal-cambiar" onclick="closeModalCambiar()">&times;</span>
@@ -567,15 +618,17 @@
                         </div>
         
                         <div class="slider-popup" id="slider-popup">
-                            <div class="slider">
-                                <img class="slider-image" src="./img/parcela1.png" alt="Imagen 1">
-                                <img class="slider-image" src="img/parcela2.jpg" alt="Imagen 2">
-                                <img class="slider-image" src="img/parcela3.jpg" alt="Imagen 3">
-                                <!-- Agrega más imágenes según sea necesario -->
+                            <div class="c-slider">
+                                <div class="slider">
+                                    <img class="slider-image" src="./img/parcela1.png" alt="Imagen 1">
+                                    <img class="slider-image" src="img/parcela2.jpg" alt="Imagen 2">
+                                    <img class="slider-image" src="img/parcela3.jpg" alt="Imagen 3">
+                                    <!-- Agrega más imágenes según sea necesario -->
+                                  </div>
+                                  <button class="close-button" id="close-button"><img src="./img/x.svg" alt=""></button>
+                                  <button class="prev-button-popup" id="prev-button-popup"><img src="./img/izquierda.svg" alt=""></button>
+                                  <button class="next-button-popup" id="next-button-popup"><img src="./img/derecha.svg" alt=""></button>
                             </div>
-                            <button class="close-button" id="close-button"><img src="./img/x.svg" alt=""></button>
-                            <button class="prev-button-popup" id="prev-button-popup"><img src="./img/izquierda.svg" alt=""></button>
-                            <button class="next-button-popup" id="next-button-popup"><img src="./img/derecha.svg" alt=""></button>
                         </div>
         
                         <h5>Nombre</h5>
@@ -718,7 +771,7 @@
                     </article>
         
     
-                    <!-- Ventana modal -->
+                    <!-- Ventana modal para editar las parcelas -->
                     <div id="modal" class="modal">
                         <div class="modal-content">
                             <span class="close-modal" onclick="closeModal()">&times;</span>

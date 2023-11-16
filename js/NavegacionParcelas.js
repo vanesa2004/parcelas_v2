@@ -22,3 +22,8 @@ function toggleMenu() {
 document.addEventListener("DOMContentLoaded", function() {
     openTab("inicio");
 });
+
+function cerrarMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.remove('open');
+}
