@@ -366,28 +366,68 @@
                     <!--========================================
                         Formulario logue
                     ==========================================-->
-                    <form action="" method="POST" id="formLogin" class="formulario active">
+                    <form method="POST" id="formLogin" class="formulario active">
 
-                        <div class="error-text">
-                            <p>aqui los errores del formualrio</p>
-                        </div>
+                        <input id="usuario" type="text" placeholder="Usuario" class="input-text" name="usuario" autocomplete="off" required> 
 
-                        <input type="text" placeholder="Usuario" class="input-text" name="correo" autocomplete="off"> 
-
-                        <input type="password" placeholder="Contraseña" name="password" class="clave">
-                            
+                        <input id="contrasena" type="password" placeholder="Contraseña" name="contrasena" class="clave" required>
 
                         <a href="#" class="link">¿Ovidaste tu contraseña?</a>
-                        <button class="btn" id="btnLogin" type="button">Ingresar</button>
+                        <button class="btn" id="btnLogin"  onclick="openMiCuentaTab()">Ingresar</button>
 
                         <img class="image-login" src="img/imagen_login.png" alt="">
 
-                    </form>
+                    </form> 
+
+                    <!-- JavaScript para manejar el inicio de sesión a través de AJAX -->
+                    <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        document.getElementById("btnLogin").addEventListener("click", function(event) {
+                            event.preventDefault(); // Evitar el comportamiento predeterminado del botón
+
+                            // Obtener los valores de usuario y contraseña
+                            var usuario = document.getElementById("usuario").value;
+                            var contrasena = document.getElementById("contrasena").value;
+
+                            // Crear un objeto XMLHttpRequest (XHR)
+                            var xhr = new XMLHttpRequest();
+
+                            // Configurar la solicitud
+                            xhr.open("POST", "php/LoginParcelas.php", true);
+                            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                            // Definir lo que se debe hacer cuando la solicitud se completa
+                            xhr.onreadystatechange = function() {
+                                if (xhr.readyState === XMLHttpRequest.DONE) {
+                                    if (xhr.status === 200) {
+                                        // Si la solicitud fue exitosa
+                                        var response = xhr.responseText;
+                                        // Manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito
+                                        console.log(response);
+
+                                        // Obtener la pestaña activa después del inicio de sesión
+                                        var activeTab = xhr.getResponseHeader("Active-Tab");
+                                        if (activeTab) {
+                                            openTab(activeTab); // Abre la pestaña guardada
+                                        }
+                                    } else {
+                                        // Si hay un error al procesar la solicitud
+                                        console.error("Error al procesar la solicitud.");
+                                    }
+                                }
+                            };
+
+                            // Enviar la solicitud con los datos de inicio de sesión
+                            xhr.send("usuario=" + usuario + "&contrasena=" + contrasena);
+                        });
+                    });
+                    </script>
+                    
 
                     <!--========================================
                         Formulario de Registro
                     ==========================================-->
-                    <form action="" method="POST" id="formRegistro" class="formulario">
+                    <form action="php/RegistrosPropietarios.php" method="POST" id="formRegistro" class="formulario">
 
                         <div class="error-text ">
                             
@@ -395,19 +435,20 @@
 
                         <img class="img-reg-parcela" src="img/registro_parcelas.png" alt="">
 
-                        <input type="text" placeholder="Nombre y Apellidos" class="nombre-completo campo" name="nombre" autocomplete="off"> 
+                        <input type="text" placeholder="Nombre y Apellidos" class="nombre-completo campo" name="nombre" autocomplete="off" required> 
 
                         <div class="container-left-right">
 
                             <div class="register-left">
 
-                                <select class="select campo" name="sexo" id="sexo">
+                                <select class="select campo" name="sexo" id="sexo" required>
                                     <option value="" disabled selected >Sexo</option>
-                                    <option value="m">Masculino</option>
-                                    <option value="f">Femenino</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
                                 </select>
         
-                                <input class="input-number campo" type="number" placeholder="Numero de telefono" name="num-tlfono">
+                                <input class="input-number campo" type="number" placeholder="Numero de telefono" name="num-tlfono" required>
+                                <span id="telefonoError" style="color: red;"></span> <!-- Mensaje de error -->
                                 <textarea class="descripcion campo" name="descripcionpersonal" id="descripcion-prsnal" cols="30" rows="10" placeholder="Descripción personal"></textarea>
     
                             </div>
@@ -416,14 +457,15 @@
     
                                 <div class="fech-nacimiento">
                                     <label for="fecha-nacimiento">Fecha de nacimiento:</label>
-                                    <input class="nacimiento campo" type="date" id="fecha-nacimiento" name="fecha-nacimiento">
+                                    <input class="nacimiento campo" type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
                                 </div>
             
-                                <input class="usuario-reg campo" type="text" placeholder="Usuario" name="usuario">
+                                <input class="usuario-reg campo" type="text" placeholder="Usuario(con este inicia sesion)" name="usuario" required>
             
-                                <input type="password" placeholder="Contraseña" name="password" class="password-reg campo">
-            
-                                <button class="btn-register" id="btnRegistro" type="button">Crear Cuenta</button>
+                                <input type="password" placeholder="Contraseña" name="password" class="password-reg campo" required>
+                                <p id="password-message" style="color: red;"></p>
+
+                                <button class="btn-register" id="btnRegistro">Crear Cuenta</button>                                  
     
                             </div>
 
@@ -539,22 +581,22 @@
                         <div class="campos-registro">
 
                             <div class="container-campo">
-                                <input type="text" placeholder="Nombre parcela" name="nombreparcelareg">
-                                <input type="text" placeholder="Hectareas" name="hectareasreg">
+                                <input type="text" placeholder="Nombre parcela" name="nombreparcelareg" required>
+                                <input type="text" placeholder="Hectareas" name="hectareasreg" required>
                             </div>
 
                             <div  class="container-campo">
-                                <input type="text" placeholder="Maquinaria" name="maquinaria-reg">
-                                <input type="text" placeholder="Costo parcela" name="costparcela-reg">
+                                <input type="text" placeholder="Maquinaria" name="maquinaria-reg" required>
+                                <input type="text" placeholder="Costo parcela" name="costparcela-reg" required>
                             </div>
 
                             <div class="container-campo">
-                                <select name="venta_alquiler">
+                                <select name="venta_alquiler" required>
                                     <option disabled selected>¿Va a vender o alquilar la parcela?</option>
                                     <option value="venta">Vender</option>
                                     <option value="alquiler">Alquilar</option>
                                 </select>
-                                <input type="text" placeholder="Ubicacion" name="ubicacion-reg">
+                                <input type="text" placeholder="Ubicacion" name="ubicacion-reg" required>
                             </div>
 
                             <div id="cultivos">
@@ -859,16 +901,19 @@
     <script src="./js/slider.js"></script>
 
     <!-- escript de el login -->
-    <script src="./js/login.js"></script>
+    <script src="js/login.js"></script>
 
     <!-- escript para agregar los nuevos campos para un cultivo -->
-    <script src="./js/CamposCultivos.js"></script>
+    <script src="js/CamposCultivos.js"></script>
 
     <!-- escript para mostrar el fomrulario de editar parcelas -->
     <script src="js/Editar_parcela.js"></script>
     
     <!-- escript modal de cambiar datos pesonales -->
     <script src="js/ModalEditarDatos.js"></script>
+
+    <!-- escript modal de cambiar datos pesonales -->
+    <script src="js/RedirigirMiCuenta.js"></script>
 
 </body>
 </html>

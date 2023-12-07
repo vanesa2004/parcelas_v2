@@ -23,10 +23,6 @@ for (let x = 0; x < tabLink.length; x++) {
     })
 }
 
-/*========================================
-Validamos el formulario de registro
-==========================================*/
-
 /*
     CREAMOS FUNCIONES PARA MOSTRAR ERROR EN PANTALLA Y ADEMAS VALIDAR SI LOS CAMPOS SON INGRESADOS CORECTAMENTE
 */
@@ -42,17 +38,42 @@ function mostrarError(mensaje,msError){
     msError.innerHTML='<p>'+mensaje+'</p>';
 }
 
-/*========================================
-Agregar class error input
-==========================================*/
-//a esta funcion le pasamos un array
+// validaciones del registro numero de telefono -------------------------------------------------------
+document.getElementById("formRegistro").addEventListener("submit", function(event) {
+    var telefono = document.getElementsByName("num-tlfono")[0].value;
+    var telefonoError = document.getElementById("telefonoError");
 
-function inputError(datos){
-    for (let i = 0; i < datos.length; i++) {
+    // Expresión regular para verificar que el número tenga exactamente 10 dígitos
+    var telefonoValido = /^\d{10}$/;
 
-        //a cada input le agregamos una clase error
-        datos[i].classList.add('input-error');
+    if (!telefonoValido.test(telefono)) {
+        telefonoError.textContent = "El número de teléfono debe tener exactamente 10 dígitos numéricos.";
+        event.preventDefault(); // Evita que el formulario se envíe si la validación falla
+    } else {
+        telefonoError.textContent = ""; // Borra el mensaje de error si la validación es exitosa
+    }
+});
 
-    } 
-    
-}
+// validaciones del registro fecha de nacimiento -------------------------------------------------------
+document.getElementById('btnRegistro').addEventListener('click', function() {
+    // Obtener la fecha de nacimiento ingresada por el usuario
+    let fechaNacimiento = document.getElementById('fecha-nacimiento').value;
+
+    // Calcular la fecha actual
+    let hoy = new Date();
+    let fechaActual = hoy.getFullYear() + '-' + ('0' + (hoy.getMonth() + 1)).slice(-2) + '-' + ('0' + hoy.getDate()).slice(-2);
+
+    // Calcular la diferencia de tiempo entre la fecha de nacimiento y la fecha actual
+    let edad = hoy.getFullYear() - new Date(fechaNacimiento).getFullYear();
+    let m = hoy.getMonth() - new Date(fechaNacimiento).getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < new Date(fechaNacimiento).getDate())) {
+        edad--;
+    }
+
+    // Validar si la edad es menor a 18 años
+    if (edad < 18) {
+        alert('Debes tener al menos 18 años para registrarte.');
+        // Evitar que se realice el registro
+        event.preventDefault();
+    }
+});
